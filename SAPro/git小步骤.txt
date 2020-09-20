@@ -1,0 +1,39 @@
+git小步骤：
+在本地git bash里面：
+
+1.生秘钥ssh-keygen -t rsa -C "1528235985@qq.com"
+  用设置密码直接回车下一步；
+
+2.将公用秘钥rsa.pub用记事本打开复制添加到github的settings网页
+
+3.输入网页注册用户时使用的git的用户名及邮箱
+  git config --global user.name NHY-A
+  git config --global user.email 1528235985@qq.com
+
+在所要提交的目录处git bash here
+4，git inti
+   git git remote add origin git@github.com:NHY-A/SAPro.git
+   使用HTTP会每次提交输入邮箱和密码，SSH则不会
+5. git add -A
+   git commit -m "描述"
+   git push origin master
+   git push origin master这步失败的话执行以下
+   
+	1: 进行push前先将远程仓库pull到本地仓库
+	$ git pull origin master    #git pull --rebase origin master
+	$ git push -u origin master
+ 
+	2: 强制push本地仓库到远程 (这种情况不会进行merge, 强制push后远程文件可能会丢失 不建议使用此方法)
+	$ git push -u origin master -f
+ 
+	3: 避开解决冲突, 将本地文件暂时提交到远程新建的分支中
+	$ git branch [name]
+	# 创建完branch后, 再进行push
+	$ git push -u origin [name] 
+之后每次使用git push origin master即可提交成功
+
+
+
+
+
+
